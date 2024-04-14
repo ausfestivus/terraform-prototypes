@@ -6,10 +6,10 @@ What follows is a TL;DR for the above guide.
 
 ## pre-requisites
 
-* You have a Vault server and your token hase the necessary access to:
+* You have a Vault server and your token has the necessary access to:
     * Enable Auth backends and configure them
     * Create policies in Vault
-* You have a TFC Organization, Project and Workspace defined. You have access to manage Variables and a Variable Set
+* You have a TFC Organization, Project and Workspace defined. You have access to manage Variables and a Variable Set.
 
 ## Prepare your Vault server
 
