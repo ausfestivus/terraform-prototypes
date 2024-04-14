@@ -6,5 +6,6 @@ data "vault_generic_secret" "health" {
 
 # Now display the config
 output "sys_health" {
-  value = data.vault_generic_secret.health
+  value     = data.vault_generic_secret.health
+  sensitive = true
 }
