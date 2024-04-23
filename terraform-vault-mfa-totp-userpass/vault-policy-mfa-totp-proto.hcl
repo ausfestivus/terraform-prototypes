@@ -1,38 +1,40 @@
 # source: https://github.com/hashicorp/learn-vault-codify/blob/main/community/policies/admin-policy.hcl
 # learning: https://developer.hashicorp.com/vault/tutorials/policies/policies?variants=vault-deploy%3Aselfhosted
 
-#region mfa-proto-related-paths
-path "identity/entity/mfa-proto" {
+# Manage our prototypes userpass auth
+path "mfa-proto/userpass" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
-path "identity/entity-alias/mfa-proto" {
-  capabilities = ["create", "read", "update", "delete", "list"]
-}
-#endregion
 
-#region totp-related
+# Manage identity entities
+path "identity/entity" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "identity/entity/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "identity/entity-alias" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "identity/entity-alias/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
 # Manage MFA totp
 path "identity/mfa/method/totp" {
   capabilities = ["read", "list"]
 }
 
-path "identity/mfa/method/totp/mfa-proto" {
+path "identity/mfa/method/totp/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 # Manage MFA login enforcement
 path "identity/mfa/login-enforcement/mfa-proto" {
   capabilities = ["create", "read", "update", "delete", "list"]
-}
-#endregion
-
-# Manage identity entities
-path "identity/entity" {
-  capabilities = ["read", "list"]
-}
-
-path "identity/entity-alias" {
-  capabilities = ["read", "list"]
 }
 
 # Allow managing leases
@@ -89,7 +91,7 @@ path "sys/health"
   capabilities = ["read", "sudo"]
 }
 
-#region Allow tokens to query themselves
+# Allow tokens to query themselves
 path "auth/token/lookup-self" {
   capabilities = ["read"]
 }
@@ -103,4 +105,3 @@ path "auth/token/renew-self" {
 path "auth/token/revoke-self" {
     capabilities = ["update"]
 }
-#endregion

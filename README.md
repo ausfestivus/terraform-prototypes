@@ -5,6 +5,7 @@ This repo contains prototype code for using Terraform and Vault.
 The following prototypes are available:
 
 * [Terraform Cloud with Vault](./terraform-vault-dynamic-credentials/README.md) using [Dynamic Provider Credentials](https://developer.hashicorp.com/terraform/cloud-docs/workspaces/dynamic-provider-credentials)
+* [Vault totp token with userpass auth method](./terraform-vault-mfa-totp-userpass/README.md)
 
 The following prototypes are planned:
 
