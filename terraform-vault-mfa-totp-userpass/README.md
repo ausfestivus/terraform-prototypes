@@ -18,3 +18,9 @@ A Vault policy file is included which you can load and apply to your normal Vaul
     * Create policies in Vault
 
 * You have an authenticator app which supports totp
+
+## Running the prototype
+
+* Fork/copy/whatever this repo/dir/code to your own VCS
+* Configure the values for the variables `auth_userpass_user_id` and `auth_userpass_user_password` in your Terraform config
+*

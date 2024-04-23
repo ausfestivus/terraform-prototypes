@@ -1,4 +1,4 @@
-variable "proto_user" {
+variable "auth_userpass_user_id" {
   description = "The name of the the user that will be added to the prototype userpass auth method."
   type        = string
 }

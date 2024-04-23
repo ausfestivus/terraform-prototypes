@@ -10,7 +10,7 @@ resource "vault_auth_backend" "prototype_auth_userpass" {
 # add and configure a users to the userpass auth method
 resource "vault_generic_endpoint" "prototype_auth_userpass_user" {
   depends_on           = [vault_auth_backend.prototype_auth_userpass]
-  path                 = "auth/${local.prototype_name}/userpass/users/${var.proto_user}"
+  path                 = "auth/${local.prototype_name}/userpass/users/${var.auth_userpass_user_id}"
   ignore_absent_fields = true
 
   data_json = jsonencode(local.auth_userpass_user_proto_json)
@@ -40,11 +40,11 @@ resource "vault_identity_mfa_login_enforcement" "prototype_userpass" {
 # https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity
 resource "vault_identity_entity" "prototype_user" {
   depends_on = [vault_generic_endpoint.prototype_auth_userpass_user]
-  name       = var.proto_user
+  name       = var.auth_userpass_user_id
 }
 resource "vault_identity_entity_alias" "prototype_user" {
   canonical_id   = vault_identity_entity.prototype_user.id
-  mount_accessor = vault_auth_backend.prototype_auth_userpass.id
+  mount_accessor = vault_auth_backend.prototype_auth_userpass.accessor
   name           = vault_identity_entity.prototype_user.name
 }
 #endregion
