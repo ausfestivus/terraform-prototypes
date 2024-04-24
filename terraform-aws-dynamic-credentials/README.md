@@ -44,8 +44,10 @@ Before you run the following command, you will need to write the Trust Policy de
 			"Condition": {
 				"StringEquals": {
 					"app.terraform.io:aud": "aws.workload.identity",
-					"app.terraform.io:sub": "organization:YOUR_TFC_ORG_NAME_HERE:project:YOUR_TFC_PROJECT_NAME_HERE:workspace:YOUR_TFC_WORKSPACE_NAME_HERE:run_phase:*"
-				}
+				},
+                "StringLike": {
+                    "app.terraform.io:sub": "organization:YOUR_TFC_ORG_NAME_HERE:project:YOUR_TFC_PROJECT_NAME_HERE:workspace:YOUR_TFC_WORKSPACE_NAME_HERE:run_phase:*"
+                }
 			}
 		}
 	]
