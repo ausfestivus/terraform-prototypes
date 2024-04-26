@@ -4,6 +4,8 @@ This prototype illustrates how to configure Dynamic Credentials between a Terraf
 
 What follows is a TL;DR for the above guide.
 
+Hashicorp have code examples available [here](https://github.com/hashicorp/terraform-dynamic-credentials-setup-examples) as well.
+
 ## Pre-requisites
 
 * You have an AWS account and sufficient access to configure it's IAM services.

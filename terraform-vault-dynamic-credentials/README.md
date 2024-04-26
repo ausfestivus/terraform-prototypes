@@ -4,6 +4,8 @@ This prototype illustrates how to configure Dynamic Credentials between a TFC Or
 
 What follows is a TL;DR for the above guide.
 
+Hashicorp have code examples available [here](https://github.com/hashicorp/terraform-dynamic-credentials-setup-examples) as well.
+
 ## Pre-requisites
 
 * You have a Vault server and your token has the necessary access to:
